@@ -2,6 +2,9 @@ import requests
 import time
 
 class Connection():
+    """
+    Class that handle connections
+    """
 
     def perform_request(self, url, n_of_tentatives=5):
         """
@@ -9,7 +12,7 @@ class Connection():
 
         :param url: string
         :param n_of_tentatives: int
-        :return: dict :: status : ok/error, content: xml/url, [error_type, error_desc if error]
+        :return: dict :: status : ok/error, content: xml/url, [error_type, error_desc] if error
         """
 
         count = 0
