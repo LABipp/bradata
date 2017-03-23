@@ -14,12 +14,13 @@ and you should have all ENEM microdata in your /bradata_data directory.
 
 ## Description
 
-
-A longer description of your project goes here...
+`(under construction)`
 
 ### contributing
 
 if you wish to contribute, check the issues. all issues are labeled by difficulty (beginner, intermediate and advanced).
+
+there is a list of possible data sources in [menu-de-dados.csv](menu-de-dados.csv).
 
 everything you do is yours -- it should be licensed under your own name.
 

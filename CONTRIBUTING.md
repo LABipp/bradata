@@ -55,11 +55,20 @@ Congratulations! Now you have a version of the repository in your machine. If yo
 
 ## HOW-TOs
 
-* git: google and stackoverflow are your best friends.
+google and stackoverflow are your best friends, but:
+
+* git:
     - dudler's simple guide: [en](https://rogerdudler.github.io/git-guide/), [pt-br](https://rogerdudler.github.io/git-guide/index.pt_BR.html)
     - [official docs](https://git-scm.com/doc)
     - [oh, sh*t, git!](http://ohshitgit.com/)
     - github [guides](https://guides.github.com/) & [help](https://help.github.com/)
+    - 
+
+* markdown:
+    - [learn in 60 seconds](http://commonmark.org/help/)
+    - [syntax specs](http://spec.commonmark.org/)
+    - [syntax philosophy and some specs](daringfireball.net/projects/markdown/syntax)
+    - 
 
 * 
 
