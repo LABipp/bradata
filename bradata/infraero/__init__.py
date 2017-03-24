@@ -1,5 +1,6 @@
 from .statistics import Statistics
 
+
 class Infraero(object):
     """
     Gets content from infraero website. It provides a mapping to content types.
