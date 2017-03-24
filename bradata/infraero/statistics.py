@@ -4,11 +4,7 @@ from bs4 import BeautifulSoup
 import time
 
 class Statistics:
-
-    """Your func goes here"""
-    def example(self):
-        print('oi')
-
+  
     def get_links(self, xml):
         """
         Get all links from a html page
@@ -51,4 +47,3 @@ class Statistics:
             time.sleep(0.05)
 
         return database_links
-
