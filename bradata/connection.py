@@ -7,7 +7,7 @@ class Connection():
     Class that handle connections
     """
 
-    def perform_request(self, url, n_of_tentatives=5):
+    def perform_request(self, url, n_of_tentatives=5, binary=False):
         """
         Perform a request handling exception and server errors printing status
 
@@ -39,7 +39,10 @@ class Connection():
                     continue
 
                 else:
-                    return {'status': 'ok', 'content': req.text}
+                    if binary:
+                        return {'status': 'ok', 'content': req.content}
+                    else:
+                        return {'status': 'ok', 'content': req.text}
 
             except Exception as e:
 

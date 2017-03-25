@@ -1,5 +1,6 @@
 from bradata.connection import Connection
 from bradata.utils import _must_contain, _treat_inputs, _unzip
+from bradata.tse.utils_tse import unzip_tse
 import os
 
 
@@ -63,7 +64,7 @@ class Candidatos:
             else:
 
                 print(t)
-                raise Exception
+                raise Exception('Type should be candidatos, bens, legendas or vagas')
 
             print('Type: ', t)
 
@@ -73,20 +74,15 @@ class Candidatos:
 
                 url = base_url + _treat_inputs(y) + '.zip' # treat_inputs turn int into str, raises error if diff type
 
-                zip = conn.perform_request(url)
+                result = conn.perform_request(url, binary=True)
 
-                if not os.path.exists(current_path + '/data'):
-                    os.makedirs(current_path + '/data')
+                if result['status'] == 'ok':
+                     result = result['content']
+                else:
+                    print('File was not dowloaded')
+                    continue
 
-                with open(current_path + '/data/temp.zip', 'w') as f:
-                    f.write(zip)
-
-                _unzip(current_path+'/data/temp.zip', current_path+'/data/')
-
-                os.remove(current_path + '/data/temp.zip')
-
-
-
+                unzip_tse(result, current_path)
 
 
 
