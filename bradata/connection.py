@@ -1,6 +1,5 @@
-
+import tqdm
 import time
-
 import requests
 
 class Connection():
@@ -12,7 +11,7 @@ class Connection():
         """
         Perform a request handling exception and server errors printing status
 
-        :param url: string
+        :param url: str
         :param n_of_tentatives: int
         :return: dict :: status : ok/error, content: xml/url, [error_type, error_desc] if error
         """

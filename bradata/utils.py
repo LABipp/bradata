@@ -1,3 +1,6 @@
+import zipfile
+
+
 def _make_url(api_house=None, base_url= None, params=None):
     """
     It builds the url based on the house webservice and parameters
@@ -83,3 +86,7 @@ def _must_contain(this=None, keys=None):
 
     else:
         return True
+
+def _unzip(source_filename, dest_dir):
+    with zipfile.ZipFile(source_filename) as zf:
+        zf.extractall(dest_dir)
