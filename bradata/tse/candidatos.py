@@ -83,8 +83,3 @@ class Candidatos:
                     continue
 
                 unzip_tse(result, current_path)
-
-
-
-
-

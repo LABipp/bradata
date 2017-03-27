@@ -1,4 +1,5 @@
 import zipfile
+import os
 
 
 def _make_url(api_house=None, base_url= None, params=None):
@@ -90,3 +91,16 @@ def _must_contain(this=None, keys=None):
 def _unzip(source_filename, dest_dir):
     with zipfile.ZipFile(source_filename) as zf:
         zf.extractall(dest_dir)
+
+def _set_download_directory(user_path=None):
+    if user_path is None:
+        user_path = os.path.expanduser('~')
+    download_path = os.path.join(user_path, "bradata_download")
+    try:
+        os.makedirs(download_path)
+    except FileExistsError:
+        pass
+    except PermissionError:
+        user_path = input("bradata doesn't seem to have the permission to write to the default download directory. please specify your desired download path:\n ")
+        download_path = _set_download_directory(user_path)  # to check if provided path is writable
+    return download_path
