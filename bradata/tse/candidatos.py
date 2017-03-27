@@ -1,6 +1,7 @@
 from bradata.connection import Connection
-from bradata.utils import _must_contain, _treat_inputs, _unzip
+from bradata.utils import _must_contain, _treat_inputs, _unzip, _set_download_directory
 from bradata.tse.utils_tse import unzip_tse
+
 import os
 
 
@@ -44,8 +45,6 @@ class Candidatos:
 
         conn = Connection()
 
-        current_path = os.getcwd()
-
         print('Downloading...\n')
 
         for t in type:
@@ -82,4 +81,6 @@ class Candidatos:
                     print('File was not dowloaded')
                     continue
 
-                unzip_tse(result, current_path)
+                unzip_tse(result, _set_download_directory() + '/tse')
+
+        print('Finished')

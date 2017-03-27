@@ -10,4 +10,4 @@ try:
 except:
     __version__ = 'unknown'
 
-__download_dir__ = bradata.utils.set_download_directory()
+__download_dir__ = bradata.utils._set_download_directory()
