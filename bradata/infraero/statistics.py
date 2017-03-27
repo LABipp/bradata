@@ -5,3 +5,6 @@ class Statistics:
     """Your func goes here"""
     def example(self):
         print('oi')
+        
+def get():
+        print('oi')

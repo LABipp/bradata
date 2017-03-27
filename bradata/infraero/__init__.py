@@ -1,7 +1,7 @@
-from .statistics import Statistics
+"""from .statistics import Statistics
 
 class Infraero(object):
-    """
+    \"""
     Gets content from infraero website. It provides a mapping to content types.
     :class:`~bradata.infraero.statistics`
     This is the preferred (and only supported) way to get access to those classes and their
@@ -9,8 +9,8 @@ class Infraero(object):
     You can initialize your connection class by:
         camara = bradata.Infraero()
     and you'll be ready to use the API on your Python projetct.
-    """
+    \"""
 
     def __init__(self):
 
-        self.statistics = Statistics()
+        self.statistics = Statistics()"""
