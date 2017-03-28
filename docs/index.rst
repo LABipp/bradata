@@ -47,7 +47,7 @@ Contents
    License <license>
    Authors <authors>
    Changelog <changes>
-   Module Reference <api/modules>
+   Contributing <contributing>
 
 
 Indices and tables
