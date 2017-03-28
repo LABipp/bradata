@@ -52,3 +52,4 @@ class Statistics:
 
         return database_links
 
+        print('oi')
