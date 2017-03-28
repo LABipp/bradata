@@ -9,6 +9,7 @@ class Statistics:
     def example(self):
         print('oi')
 
+
     def get_links(self, xml):
         """
         Get all links from a html page
@@ -53,3 +54,4 @@ class Statistics:
         return database_links
 
         print('oi')
+        return database_links
