@@ -86,7 +86,7 @@ def _must_contain(this=None, keys=None):
     else:
         return True
 
-def set_download_directory(user_path=None):
+def _set_download_directory(user_path=None):
     if user_path is None:
         user_path = os.path.expanduser('~')
     download_path = os.path.join(user_path, "bradata_download")

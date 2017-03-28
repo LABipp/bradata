@@ -46,8 +46,8 @@ Contents
 
    License <license>
    Authors <authors>
-   Changelog <changes>
    Contributing <contributing>
+   Changelog <changes>
 
 
 Indices and tables
