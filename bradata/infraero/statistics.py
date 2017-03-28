@@ -5,6 +5,14 @@ import time
 
 class Statistics:
 
+<<<<<<< HEAD
+=======
+    """Your func goes here"""
+    def example(self):
+        print('oi')
+
+
+>>>>>>> 6987fe4a6525a40462e490bf766e399cad9685f5
     def get_links(self, xml):
         """
         Get all links from a html page
@@ -48,3 +56,8 @@ class Statistics:
 
         return database_links
 
+<<<<<<< HEAD
+=======
+        print('oi')
+        return database_links
+>>>>>>> 6987fe4a6525a40462e490bf766e399cad9685f5

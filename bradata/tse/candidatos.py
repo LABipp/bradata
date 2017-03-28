@@ -1,7 +1,7 @@
 from bradata.connection import Connection
 from bradata.utils import _must_contain, _treat_inputs, _unzip, _set_download_directory
-from bradata.tse.utils_tse import unzip_tse
-
+from bradata.tse.utils_tse import unzip_tse, aggregate_tse, download_headers
+import time
 import os
 
 
@@ -45,7 +45,7 @@ class Candidatos:
 
         conn = Connection()
 
-        print('Downloading...\n')
+        download_headers()
 
         for t in type:
             if t == 'candidatos':
@@ -73,14 +73,24 @@ class Candidatos:
 
                 url = base_url + _treat_inputs(y) + '.zip' # treat_inputs turn int into str, raises error if diff type
 
+                print('Downloading\n')
+
+                time0 = time.time()
                 result = conn.perform_request(url, binary=True)
+
 
                 if result['status'] == 'ok':
                      result = result['content']
                 else:
                     print('File was not dowloaded')
                     continue
+                print('Download Time: ', time.time() - time0)
 
-                unzip_tse(result, _set_download_directory() + '/tse')
+                print('Unzip')
+                unzip_tse(result, _set_download_directory() + '/tse/' + t)
+
+                print('Aggregate')
+                aggregate_tse(_set_download_directory() + '/tse/', t, y)
+                print('Done')
 
         print('Finished')
