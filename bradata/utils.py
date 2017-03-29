@@ -86,6 +86,7 @@ def _must_contain(this=None, keys=None):
     else:
         return True
 
+
 def _set_download_directory(user_path=None):
     if user_path is None:
         user_path = os.path.expanduser('~')
@@ -96,5 +97,5 @@ def _set_download_directory(user_path=None):
         pass
     except PermissionError:
         user_path = input("bradata doesn't seem to have the permission to write to the default download directory. please specify your desired download path:\n ")
-        download_path = set_download_directory(user_path)  # to check if provided path is writable
+        download_path = _set_download_directory(user_path)  # to check if provided path is writable
     return download_path
