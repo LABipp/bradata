@@ -7,3 +7,5 @@ You can initialize your connection class by:
     camara = bradata.Infraero()
 and you'll be ready to use the API on your Python projetct.
 """
+
+import bradata.agencias.infraero

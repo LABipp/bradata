@@ -8,7 +8,7 @@ class Connection:
     Class that handle connections
     """
 
-    def perform_request(self, url, nr_tries=5):
+    def perform_request(self, url, nr_tries=5, binary=False):
         """
         Perform a request handling exception and server errors printing status
 

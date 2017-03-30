@@ -12,7 +12,7 @@ def _get_links(xml):
     :param xml: string of a html page
     :return: links: A list of all the link in the page
     """
-    soup = BeautifulSoup(xml, 'lxml')
+    soup = BeautifulSoup(xml)
     links = soup("a")
 
     return links
