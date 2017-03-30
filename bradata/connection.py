@@ -1,29 +1,28 @@
-
+import tqdm
 import time
-
 import requests
 
-class Connection():
+
+class Connection:
     """
     Class that handle connections
     """
 
-    def perform_request(self, url, n_of_tentatives=5):
+    def perform_request(self, url, nr_tries=5, binary=False):
         """
         Perform a request handling exception and server errors printing status
 
         :param url: string
-        :param n_of_tentatives: int
+        :param nr_tries: int
         :return: dict :: status : ok/error, content: xml/url, [error_type, error_desc] if error
         """
-
         count = 0
-        while 1:
+        while True:
             try:
                 print('Fetch {}'.format(url))
 
                 #fetch_time = time.time()
-                req = requests.get(url, timeout=60)
+                req = requests.get(url, timeout=1)
                 #fetch_time = time.time() - fetch_time
 
                 status = req.status_code
@@ -32,7 +31,7 @@ class Connection():
                     time.sleep(5)
 
                     count += 1
-                    if count > n_of_tentatives:
+                    if count > nr_tries:
                         print('Too many errors in a row. Returned: ERROR {}'.format(req.status_code))
                         return {'status': 'error', 'error_type': req.status_code, 'error_desc': req.text, 'content': url}
 
@@ -40,19 +39,21 @@ class Connection():
                     continue
 
                 else:
-                    return {'status': 'ok', 'content': req.text}
+                    if binary:
+                        return {'status': 'ok', 'content': req.content}
+                    else:
+                        return {'status': 'ok', 'content': req.text}
 
             except Exception as e:
 
                 print('EXCEPTION {}'.format(e))
 
                 count += 1
-                if count > n_of_tentatives:
+                if count > nr_tries:
                     print('Too many exceptions in a row. Returned: ERROR EXC')
                     return {'status': 'error', 'error_type': 'exception', 'error_desc': e, 'content': url}
 
                 time.sleep(5)
                 print('Trying Again...')
                 continue
-
 

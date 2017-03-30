@@ -1,5 +1,7 @@
+import zipfile
 import os
 
+# this function is reinventing the wheel, check requests.get documentation
 def _make_url(api_house=None, base_url= None, params=None):
     """
     It builds the url based on the house webservice and parameters
@@ -11,8 +13,6 @@ def _make_url(api_house=None, base_url= None, params=None):
     Returns: str
         The API url
     """
-
-
 
     if api_house == None:
         raise ReferenceError ('No API House Specified')
@@ -37,6 +37,7 @@ def _make_url(api_house=None, base_url= None, params=None):
 
     return base_url
 
+# python has a built-in type checking tool in python 3.5
 def _treat_inputs(value):
     """
     Make sure that inputs are in the right type
@@ -86,7 +87,18 @@ def _must_contain(this=None, keys=None):
     else:
         return True
 
-def set_download_directory(user_path=None):
+def _unzip(source_filename, dest_dir):
+    with zipfile.ZipFile(source_filename) as zf:
+        zf.extractall(dest_dir)
+
+
+def _set_download_directory(user_path=None):
+    """
+    sets up a directory where files downloaded by bradata will be stored. it is 
+    usually located in the user's home directory at bradata/, but a personalized 
+    path can be set. there's currently no support for persisting this personal 
+    choice.
+    """
     if user_path is None:
         user_path = os.path.expanduser('~')
     download_path = os.path.join(user_path, "bradata_download")
@@ -96,5 +108,5 @@ def set_download_directory(user_path=None):
         pass
     except PermissionError:
         user_path = input("bradata doesn't seem to have the permission to write to the default download directory. please specify your desired download path:\n ")
-        download_path = set_download_directory(user_path)  # to check if provided path is writable
+        download_path = _set_download_directory(user_path)  # to check if provided path is writable
     return download_path

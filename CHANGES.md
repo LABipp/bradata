@@ -3,5 +3,4 @@
 
 ## Version 0.1
 
-* add your changes here!
-* 
+* Infraero statistics added
