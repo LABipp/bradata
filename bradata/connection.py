@@ -22,7 +22,7 @@ class Connection:
                 print('Fetch {}'.format(url))
 
                 #fetch_time = time.time()
-                req = requests.get(url, timeout=60)
+                req = requests.get(url, timeout=1)
                 #fetch_time = time.time() - fetch_time
 
                 status = req.status_code

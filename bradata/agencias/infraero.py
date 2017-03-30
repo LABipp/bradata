@@ -18,7 +18,6 @@ def _get_links(xml):
     return links
 
 def get(year="2015"):
-
     """
     Get all statistics xls files from Infraero website for a given year
     :param year: string year, from 2017 to 2012

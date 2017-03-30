@@ -12,7 +12,7 @@ it should be as symple as:
 
     bradata.inep.enem.get()
 
-and you should have all ENEM microdata in your /bradata\_data directory.
+and you should have all ENEM microdata in your /bradata\_download directory.
 
 Description
 -----------

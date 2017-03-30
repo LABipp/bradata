@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-
-import pkg_resources
-import bradata.utils
 import bradata.agencias
 import bradata.cgu
 import bradata.tse
+import pkg_resources
 
 try:
     __version__ = pkg_resources.get_distribution(__name__).version
