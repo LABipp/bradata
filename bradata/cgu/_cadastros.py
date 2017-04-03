@@ -1,5 +1,4 @@
-import bradata
-from bradata.connection import stale_url_warning
+from bradata.connection import _stale_url_warning
 import requests
 import os
 import datetime
@@ -7,7 +6,7 @@ import zipfile
 import io
 
 
-def get(date=None, cadastro='CEIS'):
+def get_ceis(date=None, cadastro='CEIS'):
     """
     gets CEIS (cadastro de empresas inidôneas e suspensas, http://www.portaldatransparencia.gov.br/ceis) data. it
     converts the csv encoding to utf8.
@@ -31,9 +30,33 @@ def get(date=None, cadastro='CEIS'):
             filepath = os.path.join(bradata.__download_dir__, filename)
             with open(filepath, mode='wt', encoding='utf8') as f:
                 f.write(ceis)
-            return "CEIS downloaded to {}".format(filepath)
+            return "{} downloaded to {}".format(cadastro, filepath)
         else:
             return "file from this date is not available. website gave\"\"\" {}\"\"\" as a reply. please try a different date.".format(r.text)  # stopped here
     else:
-        print(stale_url_warning.format(r.status_code, r.text, 'Portal da Transparência do Governo Federal', 'http://www.portaltransparencia.gov.br/downloads/snapshot.asp?c=CEIS'))
+        print(stale_url_warning.format(r.status_code, r.text, 'Portal da Transparência do Governo Federal', 'http://www.portaltransparencia.gov.br/downloads/snapshot.asp?c={}'.format(cadastro)))
         r.raise_for_status()
+
+
+def get_cepim(date=None):
+    """
+    gets CEPIM (Cadastro de Entidades sem Fins Lucrativos Impedidas, http://www.portaldatransparencia.gov.br/cepim) data. it
+    converts the csv encoding to utf8.
+    :param date: a datetime object with year, month, and day attributes. if not provided, will get current day (be
+    careful if on other timezone than Brasília). input can be constructed by 
+    importing datetime module and typing `datetime.date(1994, 07, 18)`. 
+    :return: downloads csv to directory bradata.__download_dir__
+    """
+    return get_ceis(date=date, cadastro='CEPIM')
+
+
+def get_cnep(date=None):
+    """
+    gets CNEP (Cadastro Nacional de Empresas Punidas, http://www.portaldatransparencia.gov.br/cnep) data. it
+    converts the csv encoding to utf8.
+    :param date: a datetime object with year, month, and day attributes. if not provided, will get current day (be
+    careful if on other timezone than Brasília). input can be constructed by 
+    importing datetime module and typing `datetime.date(1994, 07, 18)`. 
+    :return: downloads csv to directory bradata.__download_dir__
+    """
+    return get_ceis(date=date, cadastro='CNEP')
