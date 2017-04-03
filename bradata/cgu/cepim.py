@@ -1,4 +1,5 @@
 import bradata
+from bradata.cgu.ceis import get as ceis_get
 from bradata.connection import stale_url_warning
 import requests
 import os
@@ -16,23 +17,5 @@ def get(date=None):
     importing datetime module and typing `datetime.date(1994, 07, 18)`. 
     :return: downloads csv to directory bradata.__download_dir__
     """
-    if date is None:
-        date = datetime.datetime.now()
-    params = {'a': date.year, 'm': '{:02d}'.format(date.month), 'd': '{:02d}'.format(date.day), 'consulta': 'CEPIM'}
-    r = requests.get('http://arquivos.portaldatransparencia.gov.br/downloads.asp', stream=True, params=params, timeout=1)
-    if r.status_code == 200:
-        request_content = io.BytesIO(r.content)
-        if zipfile.is_zipfile(request_content):
-            z = zipfile.ZipFile(request_content)
-            filename = z.namelist()[0]
-            with z.open(filename) as f:
-                latincepim = f.read()
-            cepim = latincepim.decode('cp1252').replace('\x00', '')  # http://www.portaldatransparencia.gov.br/faleConosco/perguntas-tema-download-dados.asp
-            with open(os.path.join(bradata.__download_dir__, filename), mode='wt', encoding='utf8') as f:
-                f.write(cepim)
-            return "CEPIM downloaded to {}".format(bradata.__download_dir__)
-        else:
-            return "file from this date is not available. website gave\"\"\" {}\"\"\" as a reply. please try a different date.".format(r.text)  # stopped here
-    else:
-        print(stale_url_warning.format(r.status_code, r.text, 'Portal da Transparência do Governo Federal', 'http://www.portaltransparencia.gov.br/downloads/snapshot.asp?c=CEPIM'))
-        r.raise_for_status()
+    # check bradata.cgu.ceis for source code.
+    return ceis_get(date=date, cadastro='CEPIM')
