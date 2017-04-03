@@ -2,6 +2,7 @@
 import bradata.agencias
 import bradata.cgu
 import bradata.tse
+import bradata.connection
 import pkg_resources
 
 try:
