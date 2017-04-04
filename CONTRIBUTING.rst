@@ -1,10 +1,12 @@
+.. _bradata-contributing:
+
 Contributing
-============
+############
 
 **note**: nothing here is set in stone. if you think something here is misguided, speak to the maintainers.
 
 general guidelines
-------------------
+==================
 
 -  OPEN-SOURCE: this is an open-source project. therefore, everything in
    it should be open-source (scripts, documentation, file formats, etc).
@@ -44,10 +46,10 @@ general guidelines
 -  
 
 code guidelines
----------------
+===============
 
 file structure
-~~~~~~~~~~~~~~
+--------------
 
 in the bradata package, every smodule is an institution (data provider). at its directory, its ``__init__.py`` should contain the functions and classes that are to be available to the public, and *nothing else*. that's because the preferred way for a user to use the ``bradata`` package is to explore what it has to offer by tab-completion available at ipython and jupyter notebook, as the package is projected to have a number of functions greater than what a user would like to memorize.
 
@@ -59,7 +61,7 @@ importing only the public functions in the ``__init__.py`` file prevents the nam
 submodules should be divided by similarity or proximity, for instance ``bradata/cgu/_cadastros.py`` has functions to get three different databases, but as the code to get them is mostly the same they reside together. (the three functions are actually only one function and two wrappers, to prevent writing more code than we need to). if the submodule is not meant to be called by the user, it should start with an underscore (\_), so that it doesn't pollute the namespace.
 
 contributors
-------------
+============
 
-contributors are listed under `AUTHORS.rst`. only people
+contributors are listed under :ref:`bradata-authors`. only people
 who have had a pull request accepted are listed as contributors.

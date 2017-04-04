@@ -1,5 +1,7 @@
+.. _bradata-readme:
+
 bradata
-=======
+#######
 
 bradata means to make easily available **all** Brazilian government data
 as a Python package.
@@ -15,12 +17,12 @@ it should be as symple as:
 and you should have all ENEM microdata in your /bradata\_download directory.
 
 Description
------------
+===========
 
 ``(under construction)``
 
 contributing
-~~~~~~~~~~~~
+============
 
 if you wish to contribute, check the issues. all issues are labeled by
 difficulty (beginner, intermediate and advanced).
@@ -30,14 +32,14 @@ there is a list of possible data sources in
 
 everything you do is yours -- it should be licensed under your own name.
 
-check the `contributing guidelines <CONTRIBUTING.rst>`__. pull requests
+check the :ref:`bradata-contributing`. pull requests
 not following the guidelines won't be accepted.
 
 if you have any doubts, contact @odanoburu or @joaocarabetta (project
-coordinators).
+maintainers).
 
 License
--------
+=======
 
 MIT license available at `LICENSE.txt <LICENSE.txt>`__
 
