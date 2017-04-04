@@ -1,9 +1,11 @@
 from bradata.connection import _stale_url_warning
+import bradata.utils
 import requests
 import os
 import datetime
 import zipfile
 import io
+import bradata
 
 
 def get_ceis(date=None, cadastro='CEIS'):
@@ -27,7 +29,8 @@ def get_ceis(date=None, cadastro='CEIS'):
             with z.open(filename) as f:
                 latinceis = f.read()
             ceis = latinceis.decode('cp1252').replace('\x00', '')  # http://www.portaldatransparencia.gov.br/faleConosco/perguntas-tema-download-dados.asp
-            filepath = os.path.join(bradata.__download_dir__, filename)
+            filepath = os.path.join(bradata.__download_dir__, 'CGU', filename)
+            bradata.utils._create_download_subdirectory('CGU')
             with open(filepath, mode='wt', encoding='utf8') as f:
                 f.write(ceis)
             return "{} downloaded to {}".format(cadastro, filepath)
