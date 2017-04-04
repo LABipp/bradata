@@ -1,5 +1,3 @@
-.. _bradata-readme:
-
 bradata
 #######
 
@@ -32,7 +30,7 @@ there is a list of possible data sources in
 
 everything you do is yours -- it should be licensed under your own name.
 
-check the :ref:`bradata-contributing`. pull requests
+check the `contributing guidelines <CONTRIBUTING.rst>`_. pull requests
 not following the guidelines won't be accepted.
 
 if you have any doubts, contact @odanoburu or @joaocarabetta (project
@@ -41,11 +39,11 @@ maintainers).
 License
 =======
 
-MIT license available at `LICENSE.txt <LICENSE.txt>`__
+MIT license available at `LICENSE.txt <LICENSE.txt>`_
 
 Note
 ----
 
 This project has been set up using PyScaffold 2.5.7. For details and
 usage information on PyScaffold see
-`here <http://pyscaffold.readthedocs.org/>`__.
+`here <http://pyscaffold.readthedocs.org/>`_.
