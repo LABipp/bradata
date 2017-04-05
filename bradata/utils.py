@@ -1,6 +1,7 @@
 import zipfile
 import os
 import bradata
+import datetime
 
 # this function is reinventing the wheel, check requests.get documentation
 def _make_url(api_house=None, base_url= None, params=None):
@@ -117,3 +118,20 @@ def _create_download_subdirectory(submodule_name):
     if not os.path.exists(submodule_download_path):
         os.mkdir(submodule_download_path)
     return None
+
+
+def _parse_time(begin_date, end_date=None, freq='d'):
+    freq_dict = {'d': '%Y-%m-%d', 'm': '%Y-%m', 'y': '%Y'}
+    freq_str = freq_dict[freq]
+    if end_date is None:
+        end_date = datetime.date.today()
+    elif isinstance(begin_date, str):
+        end_date = datetime.datetime.strptime(end_date, freq_str).date()
+
+    if isinstance(begin_date, str):
+        begin_date = datetime.datetime.strptime(begin_date, freq_str).date()
+    if not isinstance(begin_date, datetime) or isinstance(begin_date, datetime):
+        raise Exception("begin_date or end_date not valid input. input must be string in {} format or a valid datetime object.".format(freq_str))
+#http://stackoverflow.com/questions/1060279/iterating-through-a-range-of-dates-in-python
+#stopped here.
+
