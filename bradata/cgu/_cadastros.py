@@ -35,7 +35,8 @@ def get_ceis(date=None, cadastro='CEIS'):
                 f.write(ceis)
             return "{} downloaded to {}".format(cadastro, filepath)
         else:
-            return "file from this date is not available. website gave\"\"\" {}\"\"\" as a reply. please try a different date.".format(r.text)  # stopped here
+            print("file from this date is not available. website gave\n\"\"\"\n {}\n\"\"\"\nas a reply. please try a different date.".format(r.text))
+            return None
     else:
         print(stale_url_warning.format(r.status_code, r.text, 'Portal da Transparência do Governo Federal', 'http://www.portaltransparencia.gov.br/downloads/snapshot.asp?c={}'.format(cadastro)))
         r.raise_for_status()

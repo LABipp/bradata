@@ -1,1 +1,1 @@
-from bradata.cgu.cadastros import get_ceis, get_cepim, get_cnep
+from bradata.cgu._cadastros import get_ceis, get_cepim, get_cnep

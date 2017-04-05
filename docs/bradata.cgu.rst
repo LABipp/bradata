@@ -9,7 +9,7 @@ Module contents
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: bradata.cgu.cadastros
+.. automodule:: bradata.cgu._cadastros
     :members:
     :undoc-members:
     :show-inheritance:
