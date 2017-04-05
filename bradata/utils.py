@@ -121,6 +121,7 @@ def _create_download_subdirectory(submodule_name):
 
 
 def _parse_time(begin_date, end_date=None, freq='d'):
+    #add docs and make tests (what happens if begin_date>end_date?)
     freq_dict = {'d': '%Y-%m-%d', 'm': '%Y-%m', 'y': '%Y'}
     freq_str = freq_dict[freq]
     if end_date is None:
@@ -130,8 +131,9 @@ def _parse_time(begin_date, end_date=None, freq='d'):
 
     if isinstance(begin_date, str):
         begin_date = datetime.datetime.strptime(begin_date, freq_str).date()
-    if not isinstance(begin_date, datetime) or isinstance(begin_date, datetime):
+    if (not isinstance(begin_date, datetime.date)) or (not isinstance(begin_date, datetime.date)):
         raise Exception("begin_date or end_date not valid input. input must be string in {} format or a valid datetime object.".format(freq_str))
-#http://stackoverflow.com/questions/1060279/iterating-through-a-range-of-dates-in-python
-#stopped here.
+    delta = end_date - begin_date         # timedelta
+    for i in range(delta.days + 1):
+        yield begin_date + datetime.timedelta(days=i)
 
