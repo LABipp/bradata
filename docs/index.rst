@@ -42,12 +42,15 @@ Contents
 ========
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    License <license>
    Authors <authors>
    Contributing <contributing>
+   Beginner's tutorial <beginner-tutorial>
    Changelog <changes>
+   bradata <modules>
+
 
 
 Indices and tables

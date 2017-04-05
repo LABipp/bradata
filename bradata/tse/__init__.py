@@ -8,7 +8,9 @@ class Tse(object):
     This is the preferred (and only supported) way to get access to those classes and their
     methods.
     You can initialize your connection class by:
+    
         camara = bradata.Infraero()
+    
     and you'll be ready to use the API on your Python projetct.
     """
 
