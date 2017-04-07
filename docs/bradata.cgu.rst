@@ -1,15 +1,22 @@
 bradata.cgu package
 ===================
 
-Module contents
----------------
+Submodules
+----------
 
-.. automodule:: bradata.cgu
+bradata.cgu.cgu module
+----------------------
+
+.. automodule:: bradata.cgu.cgu
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: bradata.cgu._cadastros
+
+Module contents
+---------------
+
+.. automodule:: bradata.cgu
     :members:
     :undoc-members:
     :show-inheritance:
