@@ -128,7 +128,6 @@ def _parse_time(begin_date, end_date=None, freq='d'):
         end_date = datetime.date.today()
     elif isinstance(begin_date, str):
         end_date = datetime.datetime.strptime(end_date, freq_str).date()
-
     if isinstance(begin_date, str):
         begin_date = datetime.datetime.strptime(begin_date, freq_str).date()
     if (not isinstance(begin_date, datetime.date)) or (not isinstance(begin_date, datetime.date)):
