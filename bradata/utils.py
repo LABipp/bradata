@@ -136,7 +136,7 @@ def _parse_time(begin_date, end_date=None, freq='d'):
 
 
 def _yield_daterange(begin_date, end_date=None, freq='d'):
-    #add docs and make tests
+    #only works for year, so I'm stripping it. use pandas.date_range instead
     begin_date, end_date = _parse_time(begin_date=begin_date, end_date=end_date, freq=freq)
     delta = end_date - begin_date         # timedelta
     for i in range(delta.days + 1):
