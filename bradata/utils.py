@@ -120,24 +120,14 @@ def _create_download_subdirectory(submodule_name):
     return None
 
 
-def _parse_time(begin_date, end_date=None, freq='d'):
+def _parse_time(date, freq='d'):
     #add docs and make tests (what happens if begin_date>end_date?)
     freq_dict = {'d': '%Y-%m-%d', 'm': '%Y-%m', 'y': '%Y'}
-    freq_str = freq_dict[freq]
-    if end_date is None:
-        end_date = datetime.date.today()
-    elif isinstance(begin_date, str):
-        end_date = datetime.datetime.strptime(end_date, freq_str).date()
-    if isinstance(begin_date, str):
-        begin_date = datetime.datetime.strptime(begin_date, freq_str).date()
-    if (not isinstance(begin_date, datetime.date)) or (not isinstance(begin_date, datetime.date)):
+    freq_str = freq_dict[freq.lower()]
+    if date is None:
+        date = datetime.date.today()
+    elif isinstance(date, str):
+        date = datetime.datetime.strptime(date, freq_str).date()
+    if not isinstance(date, datetime.date):
         raise Exception("begin_date or end_date not valid input. input must be string in {} format or a valid datetime object.".format(freq_str))
-    return begin_date, end_date
-
-
-def _yield_daterange(begin_date, end_date=None, freq='d'):
-    #only works for year, so I'm stripping it. use pandas.date_range instead
-    begin_date, end_date = _parse_time(begin_date=begin_date, end_date=end_date, freq=freq)
-    delta = end_date - begin_date         # timedelta
-    for i in range(delta.days + 1):
-        yield begin_date + datetime.timedelta(days=i)
+    return date

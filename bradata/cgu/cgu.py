@@ -12,13 +12,12 @@ def get_ceis(date=None, cadastro='CEIS'):
     """
     gets CEIS (cadastro de empresas inidôneas e suspensas, http://www.portaldatransparencia.gov.br/ceis) data. it
     converts the csv encoding to utf8.
-    :param date: a datetime object with year, month, and day attributes. if not provided, will get current day (be
+    :param date: a string in YYYY-mm-dd format or a datetime object with year, month, and day attributes. if not provided, will get current day (be
     careful if on other timezone than Brasília). input can be constructed by 
     importing datetime module and typing `datetime.date(1994, 07, 18)`. 
     :return: downloads csv to directory bradata.__download_dir__
     """
-    if date is None:
-        date = datetime.datetime.now()
+    date = bradata.utils._parse_time(date, freq='d')
     params = {'a': date.year, 'm': '{:02d}'.format(date.month), 'd': '{:02d}'.format(date.day), 'consulta': cadastro}
     r = requests.get('http://arquivos.portaldatransparencia.gov.br/downloads.asp', stream=True, params=params, timeout=1)
     if r.status_code == 200:
