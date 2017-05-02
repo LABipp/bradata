@@ -1,23 +1,49 @@
 candidatos:
-    2010: CONSULTA_CAND_2010
-    2012: CONSULTA_CAND_2012
-    2014: CONSULTA_CAND_2014
-perfil:
-    3000: PERFIL_ELEITORADO
-bens:
-    3000: BEM_CANDIDATO
+    columns:
+        2010: CONSULTA_CAND_2010
+        2012: CONSULTA_CAND_2012
+        2014: CONSULTA_CAND_2014
+    url: http://agencia.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_
+
+perfil_eleitorado:
+    columns:
+        0: PERFIL_ELEITORADO
+    url: http://agencia.tse.jus.br/estatistica/sead/odsele/perfil_eleitorado/perfil_eleitorado_
+
+bem_candidato:
+    columns:
+        0: BEM_CANDIDATO
+    url: http://agencia.tse.jus.br/estatistica/sead/odsele/bem_candidato/bem_candidato_
+
 legendas:
-    3000: CONSULTA_LEGENDAS
+    columns:
+        0: CONSULTA_LEGENDAS
+    url: http://agencia.tse.jus.br/estatistica/sead/odsele/consulta_legendas/consulta_legendas_
+
 vagas:
-    3000: CONSULTA_VAGAS 
-votacao_cand:
-    2012: VOTACAO_CANDIDATO_MUN_ZONA_2012
-    2014: VOTACAO_CANDIDATO_MUN_ZONA_2014
-votacao_part:
-    2012: VOTACAO_PARTIDO_MUN_ZONA_2012
-    2014:VOTACAO_PARTIDO_MUN_ZONA_2014
-voto_sessao:
-    3000: VOTO_SECAO 
-detalhe:
-    2012: DETALHE_VOTACAO_MUN_ZONA_2012
-    2014: DETALHE_VOTACAO_MUN_ZONA_2014
+    columns:
+        0: CONSULTA_VAGAS
+    url: http://agencia.tse.jus.br/estatistica/sead/odsele/consulta_vagas/consulta_vagas_
+
+votacao_candidato_munzona:
+    columns:
+        2012: VOTACAO_CANDIDATO_MUN_ZONA_2012
+        2014: VOTACAO_CANDIDATO_MUN_ZONA_2014
+    url: http://agencia.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_
+
+votacao_partido_munzona:
+    columns:
+        2012: VOTACAO_PARTIDO_MUN_ZONA_2012
+        2014: VOTACAO_PARTIDO_MUN_ZONA_2014
+    url: http://agencia.tse.jus.br/estatistica/sead/odsele/votacao_partido_munzona/votacao_partido_munzona_
+
+votacao_secao_eleitoral:
+    columns:
+        0: VOTO_SECAO
+    url: http://www.tse.jus.br/hotSites/pesquisas-eleitorais/resultados_anos/votacao/votacao_secao_eleitoral_
+
+detalhe_votacao_munzona:
+    columns:
+        2012: DETALHE_VOTACAO_MUN_ZONA_2012
+        2014: DETALHE_VOTACAO_MUN_ZONA_2014
+    url: http://agencia.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_munzona/detalhe_votacao_munzona_
