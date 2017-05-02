@@ -1,6 +1,7 @@
 import zipfile
 import os
 import bradata
+import datetime
 
 # this function is reinventing the wheel, check requests.get documentation
 def _make_url(api_house=None, base_url= None, params=None):
@@ -117,3 +118,16 @@ def _create_download_subdirectory(submodule_name):
     if not os.path.exists(submodule_download_path):
         os.mkdir(submodule_download_path)
     return None
+
+
+def _parse_time(date, freq='d'):
+    #add docs and make tests (what happens if begin_date>end_date?)
+    freq_dict = {'d': '%Y-%m-%d', 'm': '%Y-%m', 'y': '%Y'}
+    freq_str = freq_dict[freq.lower()]
+    if date is None:
+        date = datetime.date.today()
+    elif isinstance(date, str):
+        date = datetime.datetime.strptime(date, freq_str).date()
+    if not isinstance(date, datetime.date):
+        raise Exception("begin_date or end_date not valid input. input must be string in {} format or a valid datetime object.".format(freq_str))
+    return date
