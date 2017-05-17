@@ -122,7 +122,7 @@ def _create_download_subdirectory(submodule_name):
 
 def _parse_time(date, freq='d'):
     #add docs and make tests (what happens if begin_date>end_date?)
-    freq_dict = {'d': '%Y-%m-%d', 'm': '%Y-%m', 'y': '%Y'}
+    freq_dict = {'d': '%Y-%m-%d', 'm': '%Y-%m', 'y': '%Y', 'a': '%Y'}
     freq_str = freq_dict[freq.lower()]
     if date is None:
         date = datetime.date.today()
