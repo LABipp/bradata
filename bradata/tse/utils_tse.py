@@ -33,7 +33,7 @@ def aggregate_tse(path, type, year):
             if year >= 2014:
                 header = 'CONSULTA_CAND_2014'
             elif year == 2012:
-                header = 'CONSULTA_CAND_2014'
+                header = 'CONSULTA_CAND_2012'
             elif year <= 2010:
                 header = 'CONSULTA_CAND_2010'
             df_list.append(
